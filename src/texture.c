@@ -4,7 +4,6 @@
 #include <stdbool.h>
 #include <stdint.h>
 
-#include <lauxlib.h>
 #include <GL/gl.h>
 #include <png.h>
 
@@ -37,7 +36,7 @@ SPTexture* SPTexture_new(int width, int height, spTexID texid) {
 static GLuint upload_texture(spTextureFmt fmt, int width, int height, const ubyte* data) {
 	spTexID tex = spTexID_Bad;
 	
-	if(NULL == data) {
+	if(data == NULL) {
 		// WTF happened here?
 		return tex;
 	}
@@ -86,7 +85,7 @@ SPTexture* SPTexture_frompng(const char* path) {
 	png_structp png_state = NULL;
 	png_infop png_info = NULL;
 
-	if(NULL == pngf) {
+	if(pngf == NULL) {
 		return texture;
 	}
 	
